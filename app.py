@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import raspieats
 
 
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -11,6 +12,7 @@ def index():
     
 @app.route('/game')
 def game():
+
      my_game = raspieats.Game()
      my_game.run()
      return "Game Ruunning"

@@ -18,6 +18,17 @@ class Game:
         self.food_x = 6
         self.food_y = 6
         self.is_hungry = True
+        self.score = 0
+
+    def reset(self):
+        sense.clear()
+        self.player_x = random.randint(0,7)
+        self.player_y = random.randint(0,7)
+        same_spooy = True
+        while same_spot:
+            self.food_x = random.randint(0,7)
+            self.food_y = random.randint(0,7)
+            
 
     def down(self):
         if self.player_y <7:
@@ -67,6 +78,10 @@ class Game:
                     self.right()
                     self.update()
                 elif self.player_x == self.food_x and self.food_y == self.player_y:
+                    self.score += 1 
+                    sense.show_letter(str(self.score))
+                    time.sleep(.5)
+                    self.reset()
                     self.player_x = random.choice(range(8))
                     self.player_y = random.choice(range(8))
                     self.food_x = random.choice(range(8))
